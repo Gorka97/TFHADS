@@ -1,0 +1,15 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+
+<h2>{{ title }}</h2>
+<h3>{{ topic }}</h3>
+
+<h1>Insertar una opción</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+{% if error_message %}<p><strong style="color:red;"><b>{{ error_message }}</b></strong></p>{% endif %}
+<a href="{% url 'qindex' %}">Ver preguntas</a> 
+
+{% endblock %}
